@@ -52,16 +52,32 @@ function buildSignature(word){
 
 }
 
-var similarDict = {};
+
 //once you have your dictionary build, you would want to build a master array with objects that store the signature and the corresponding word.
 function compareSimilar(){
 	//get the input from the file.
 	//TODO : iteration - fetch the data from a file.
+	var obj = {};
 	for(){
-
 		var str ; //TODO: here is where the concatination will happen.
-	}
+		var word; 
+		if(obj.indexOf(str) == 'undefined'){
+			var arr = [];
+			arr.push(word)
+			obj[str] = arr
+		}else {
+			var arr = obj[str];
+			arr.push(word);
+			obj[str] = arr;
+		}
 
+	}
+	return obj;
 }
+
+//finally for any given word, search the obj object and that will give out the anagrams.
+
+
+
 
 
