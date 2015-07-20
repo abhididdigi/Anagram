@@ -1,7 +1,7 @@
 # Anagram
 A simple program that generates Anagrams
 
-Related blog entry : 
+Related blog entry : http://www.servicenowdiary.com/2015/07/20/anagram/
 
 Sample Usage:
 
