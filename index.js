@@ -1,4 +1,25 @@
 //program to build a dictionary using JavaScript
+var dictionary = [];
+var fs = require("fs");
+fs.readFile('wordlist.txt','utf8',function(err,data){
+	if(err){
+		return console.log(err)
+	}
+	var allDictWords = data.split('\n');
+	for(var i in allDictWords){
+		var dictWord = allDictWords[i];
+		dictionary.push(buildSignature(dictWord));
+	}
+
+	fs.writeFile("dict.txt",JSON.stringify(dictionary),function(err){
+		if(err){
+			return console.log(err);
+		}
+		console.log("the file was saved");
+	});
+
+});
+
 
 //global declaration of the object that stores the Signature of all words in a dictionary
 
@@ -36,25 +57,29 @@ var alphaDict = { a: '0',
 //idea : Parse all the letters and build an array. so the length of array in signatures  = total number of words in the dictionary
 function buildSignature(word){
 	var wordCopy = word;
+
+	
 	var arr = new Array(26);
-	var ret = [];
+	var ret = {};
 	//initialize the array to zero
 	for(var i=0; i<26; i++){
 		arr[i] =0;
 	}
 	for(var i in word){
 		var character = word[i];
+		
 		arr[alphaDict[character]]++;
 	}
 	
 	ret[arr] = wordCopy;
+	
 	return ret;
 
 }
 
 
 //once you have your dictionary build, you would want to build a master array with objects that store the signature and the corresponding word.
-function compareSimilar(){
+/*function compareSimilar(){
 	//get the input from the file.
 	//TODO : iteration - fetch the data from a file.
 	var obj = {};
@@ -73,7 +98,7 @@ function compareSimilar(){
 
 	}
 	return obj;
-}
+}*/
 
 //finally for any given word, search the obj object and that will give out the anagrams.
 
