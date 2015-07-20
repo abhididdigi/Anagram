@@ -15,3 +15,6 @@ If you have a new data set for dictionary, run the following files in the exact 
 2. `node normalize.js`
 3. `node anagram.js <word>`
 
+
+
+I coded this program in Hanging Lake, CO, USA.
